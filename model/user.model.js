@@ -32,7 +32,9 @@ const userSchema = new mongoose.Schema({
       },
       address: {
         type: Object,
-        default: {}
+        default: {
+            city: "test city"
+        }
       },
       isActive: {
         type: Boolean,
