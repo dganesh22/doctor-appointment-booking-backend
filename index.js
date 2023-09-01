@@ -18,7 +18,7 @@ app.use(express.json())
 
 // middleware
 app.use(cors())
-app.use(cookieParser())
+app.use(cookieParser(process.env.API_ACCESS_SECRET))
 
 // default route
 app.get(`/`, (req,res) => {
@@ -34,6 +34,7 @@ app.use(`/api/auth`, require('./route/auth.route'))
 app.use(`/api/doctor`, require('./route/doctor.route'))
 app.use(`/api/service`, require(`./route/service.route`))
 app.use(`/api/user`, require('./route/user.route'))
+app.use(`/api/slot`, require('./route/slot.route'))
 
 // port listen
 app.listen(PORT, async () => {
